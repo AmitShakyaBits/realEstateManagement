@@ -57,7 +57,30 @@ $('#user--logout').click(function() {
 	return false;
 });
 
+function book(propertyId, book_btn){
+	var params = {};
+	params.propertyId = propertyId;
+	params.clientId = getUserId();
+	params.bookingStatus = "O";
+	
+	var url = "/bookings/";
+	setTimeout(function() {
+		response = httpPost(url, params, true);
+		console.log(response)
+		if (response.errorCode == 0) {
+				window.setTimeout(function() {
+					alert("Booking done successfully")
+					//book_btn.innerHTML = "Booked"
 
+				}, 1000);
+			} else {
+
+				window.setTimeout(function() {
+					alert(response.error);
+
+				}, 1000);
+			}
+}); }
 
 function mylisting() {
 	var ownerId = getUserId();
@@ -89,6 +112,14 @@ function mylisting() {
 				bed.innerHTML = currentData.propertyBed;
 
 				childElement.setAttribute('style', 'display:block');
+				var book_btn = childElement.getElementsByClassName("link-a badge");
+				childElement.addEventListener("click", function(){
+					book(currentData.propertyId, book_btn);
+				});
+				if(currentData.propertyStatus === 'B'){
+					$(book_btn).html('Booked');
+					$(book_btn).attr('disabled', true);
+				}
 				currentIndex = currentIndex + 1;
 			});
 

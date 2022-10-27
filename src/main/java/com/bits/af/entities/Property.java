@@ -7,13 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "property")
+@Entity
+@Table(name = "property")
 public class Property {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int propertyId;
+	@Column(name = "propertyID")
+	private Integer propertyId;
 
 	@Column(name = "pty_name")
 	private String propertyName;
@@ -47,13 +50,13 @@ public class Property {
 
 	@Column(name = "pty_unique")
 	private String propertyUniqueId;
-
+	
 	@Column(name = "pty_area")
-	private int propertyArea;
+	private Integer propertyArea;
 
 	@Column(name = "pty_bed")
-	private int propertyBed;
-	
+	private Integer propertyBed;
+
 	@Column(name = "pty_country")
 	private String propertyCountry;
 
@@ -66,13 +69,13 @@ public class Property {
 	}
 
 	@Column(name = "pty_zipcode")
-	private int propertyZipCode;
+	private Integer propertyZipCode;
 
-	public int getPropertyZipCode() {
+	public Integer getPropertyZipCode() {
 		return propertyZipCode;
 	}
 
-	public void setPropertyZipCode(int propertyZipCode) {
+	public void setPropertyZipCode(Integer propertyZipCode) {
 		this.propertyZipCode = propertyZipCode;
 	}
 
@@ -98,27 +101,27 @@ public class Property {
 		this.propertyDescription = propertyDescription;
 	}
 
-	public int getPropertyArea() {
+	public Integer getPropertyArea() {
 		return propertyArea;
 	}
 
-	public void setPropertyArea(int propertyArea) {
+	public void setPropertyArea(Integer propertyArea) {
 		this.propertyArea = propertyArea;
 	}
 
-	public int getPropertyBed() {
+	public Integer getPropertyBed() {
 		return propertyBed;
 	}
 
-	public void setPropertyBed(int propertyBed) {
+	public void setPropertyBed(Integer propertyBed) {
 		this.propertyBed = propertyBed;
 	}
 
-	public int getPropertyId() {
+	public Integer getPropertyId() {
 		return propertyId;
 	}
 
-	public void setPropertyId(int propertyId) {
+	public void setPropertyId(Integer propertyId) {
 		this.propertyId = propertyId;
 	}
 
@@ -131,13 +134,13 @@ public class Property {
 	}
 
 	@Column(name = "pty_owner_id")
-	private int propertyOwnerId;
+	private Integer propertyOwnerId;
 
-	public int getPropertyOwnerId() {
+	public Integer getPropertyOwnerId() {
 		return propertyOwnerId;
 	}
 
-	public void setPropertyOwnerId(int propertyOwnerId) {
+	public void setPropertyOwnerId(Integer propertyOwnerId) {
 		this.propertyOwnerId = propertyOwnerId;
 	}
 

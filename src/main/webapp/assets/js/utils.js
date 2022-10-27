@@ -30,7 +30,7 @@ function httpPost(url, params, nJsonResponse) {
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 	xhr.onload = function() {
-		if (xhr.readyState == 4 && xhr.status == "200") {
+		if ((xhr.readyState == 4 && xhr.status == "200") || (xhr.readyState == 4 && xhr.status == "201")) {
 			if (nJsonResponse) {
 				response = xhr.responseText;
 				if (response != undefined) {
@@ -45,7 +45,6 @@ function httpPost(url, params, nJsonResponse) {
 		}
 	}
 	xhr.send(json);
-
 	return response;
 }
 
