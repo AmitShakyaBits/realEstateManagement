@@ -31,7 +31,7 @@ function search() {
 		params.propertyType = typeInput.value;
 	if (numBedInput.value)
 		params.propertyBed = parseInt(numBedInput.value);
-	$('#no--search--info').attr('style', 'display:');
+	$('#no--search--info').attr('style', 'display:none');
 	var url = "/property/search";
 	setTimeout(function() {
 		$.when(httpPost(url, params, true)).then(function(response) {
