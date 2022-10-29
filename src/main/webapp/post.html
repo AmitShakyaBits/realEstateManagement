@@ -39,9 +39,9 @@
 
 <body>
 
-	<!-- ======= Property Search Section ======= -->
+	<!-- <!-- ======= Property Search Section ======= -->
 	<div class="click-closed"></div>
-	<!--/ Form Search Star /-->
+	/ Form Search Star /
 	<div class="box-collapse">
 		<div class="title-box-d">
 			<h3 class="title-d">Search Property</h3>
@@ -108,9 +108,9 @@
 			</form>
 		</div>
 	</div>
-	<!-- End Property Search Section -->
+	End Property Search Section
 	>
-
+ -->
 	<!-- ======= Header/Navbar ======= -->
 	<nav
 		class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -140,11 +140,11 @@
 				</ul>
 			</div>
 
-			<button type="button"
+		<!-- 	<button type="button"
 				class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
 				data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
 				<i class="bi bi-search"></i>
-			</button>
+			</button> -->
 
 		</div>
 	</nav>
@@ -529,18 +529,18 @@
 											<div class="zf-overflow">
 												<span class="zf-multiAttType"> <input
 													class="zf-radioBtnType" type="radio" id="Radio_4"
-													name="property--category" checktype="c1" value="Independent House">
-													<label for="Radio_4" class="zf-radioChoice-b">Independent
-														House</label>
+													name="property--category" checktype="c1"
+													value="Independent House"> <label for="Radio_4"
+													class="zf-radioChoice-b">Independent House</label>
 												</span> <span class="zf-multiAttType"> <input
 													class="zf-radioBtnType" type="radio" id="Radio_5"
 													name="property--category" checktype="c1" value="Apartment">
 													<label for="Radio_5" class="zf-radioChoice-b">Apartment</label>
 												</span> <span class="zf-multiAttType"> <input
 													class="zf-radioBtnType" type="radio" id="Radio_6"
-													name="property--category" checktype="c1" value="Office Space">
-													<label for="Radio_6" class="zf-radioChoice-b">Office
-														Space</label>
+													name="property--category" checktype="c1"
+													value="Office Space"> <label for="Radio_6"
+													class="zf-radioChoice-b">Office Space</label>
 												</span>
 												<div class="zf-clearBoth"></div>
 											</div>
@@ -599,22 +599,7 @@
 										</div>
 										<div class="zf-clearBoth"></div> <!---------Currency Starts Here----------></li>
 
-									<!---------Date Starts Here---------->
-									<li class="zf-tempFrmWrapper zf-date"><label
-										class="zf-labelName"> Available From <em
-											class="zf-important">*</em>
-									</label>
-										<div class="zf-tempContDiv">
-											<span> <input type="text" name="Date" checktype="c4"
-												id="property--available--from" value="" maxlength="25"
-												placeholder="" /><label>dd-MM-yyyy</label>
-											</span>
-											<div class="zf-clearBoth"></div>
-											<p id="Date_error" class="zf-errorMessage"
-												style="display: none;">Invalid value</p>
-										</div>
-										<div class="zf-clearBoth"></div></li>
-									<!---------Date Ends Here---------->
+								
 									<!---------Multiple Line Starts Here---------->
 									<li class="zf-tempFrmWrapper zf-large"><label
 										class="zf-labelName"> Description of Property </label>
@@ -657,7 +642,24 @@
 
 	</main>
 	<!-- End #main -->
-
+	<!-- Modal -->
+	<div class="modal fade" id="login--confirm--modal" tabindex="-1"
+		aria-labelledby="delete--confirm--modal--label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="delete--confirm--modal--label">Login
+						confirmation</h5>
+					
+				</div>
+				<div class="modal-body">Please login/signup</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						id='login--confirm--button'>Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="preloader"></div>
 	<a href="#"

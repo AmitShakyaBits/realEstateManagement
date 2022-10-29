@@ -1,4 +1,4 @@
-$('#registerationFrom').submit(function() {
+$('#registerPropertyButton').click(function() {
 	addProperty();
 	return false;
 });
@@ -21,7 +21,7 @@ function addProperty() {
 	var price = document.getElementById("property--price").value;
 	var numBeds = document.getElementById("property--beds").value;
 	var description = document.getElementById("property--description").value;
-	var availableFrom = document.getElementById("property--available--from").value;
+	/*var availableFrom = document.getElementById("property--available--from").value;*/
 	var category = document.querySelector("input[type='radio'][name=property--category]:checked").value;
 	var type = document.querySelector("input[type='radio'][name=property--type]:checked").value;
 
@@ -44,7 +44,7 @@ function addProperty() {
 
 	params.propertyZipCode = zipcode;
 	params.propertyDescription = description;
-	params.propertyAvailableDate = availableFrom;
+	/*params.propertyAvailableDate = availableFrom;*/
 	params.propertyCountry = country;
 	//Read current logged in userId from cookie
 	params.propertyOwnerId = getUserId();

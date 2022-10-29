@@ -3,6 +3,7 @@ package com.bits.af.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,10 +33,10 @@ import com.bits.af.repository.TransactionRepository;
 public class BookController {
 	@Autowired
 	private BookRepository bookRepo;
-	
+
 	@Autowired
 	private PropertyRepository propertyRepo;
-	
+
 	@Autowired
 	private TransactionRepository transactionRepo;
 
@@ -55,7 +56,6 @@ public class BookController {
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-	
 
 	@Transactional
 	@SuppressWarnings("rawtypes")
@@ -63,34 +63,51 @@ public class BookController {
 	public ResponseEntity addBooking(@RequestBody BookingRequest bookingRequest) throws Exception {
 		Booking book = new Booking();
 		BeanUtils.copyProperties(bookingRequest, book);
+		HashMap<String, Object> status = new HashMap<String, Object>();
+		int bookingId = 0;
 		try {
-			
+
 			Optional<Property> property = propertyRepo.findById(book.getPropertyId());
-			if(property.isPresent() && !property.get().getPropertyStatus().equals("B")) {
-				property.get().setPropertyStatus("B");
-				propertyRepo.save(property.get());
-			}else if(property.get().getPropertyStatus().equals("B")) {
-				throw new Exception("This property is already booked");
-			}else {
+			if (property.isPresent()) {
+				String bookingStatus = property.get().getPropertyStatus();
+				System.out
+						.println(String.format("Booking status for [%s] is [%s]", book.getPropertyId(), bookingStatus));
+				if (bookingStatus == null) {
+					property.get().setPropertyStatus("B");
+					propertyRepo.save(property.get());
+				} else {
+					if (property.get().getPropertyStatus().equals("B")) {
+						status.put("errorCode", 3);
+						status.put("error", "Already booked.");
+						
+					}
+				}
+			} else {
 				throw new Exception("Could not find property");
 			}
-			System.out.println(bookingRequest.getBookingId() + " "+ bookingRequest.getBookingStatus() + " "+ bookingRequest.getClientId() + " "+ bookingRequest.getPropertyId());
+			System.out.println(bookingRequest.getBookingId() + " " + bookingRequest.getBookingStatus() + " "
+					+ bookingRequest.getClientId() + " " + bookingRequest.getPropertyId());
 			book = bookRepo.save(book);
 			Transaction transaction = new Transaction();
-			transaction.setBookingId(book.getBookingId());
+			bookingId = Integer.valueOf((int) (Math.random() * 100000000));
+			System.out.println(String.format("Booking id is [%s]", bookingId));
+			transaction.setBookingId(bookingId);
 			transaction.setClientId(book.getClientId());
 			transaction.setPropertyId(book.getPropertyId());
 			transaction.setTransactionStartDate(Date.valueOf(LocalDate.now()));
 			transaction.setTransactionStatus('P');
 			transaction.setBankReferenceId("");
 			transactionRepo.save(transaction);
-			
-			return new ResponseEntity<>("Booking successful", HttpStatus.CREATED);
+			status.put("errorCode", 0);
+			return new ResponseEntity<>(status, HttpStatus.OK);
 		} catch (Exception e) {
-			throw new Exception("Could not process booking " + e.getMessage());
+			status.put("errorCode", 3);
+			status.put("error", "Could not book the property due to [%s]".formatted(e));
+			System.out.println(String.format("Could not book the property due to [%s]", e));
+			return new ResponseEntity<>(status, HttpStatus.OK);
 		}
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	@PutMapping(produces = "application/json", consumes = "application/json")
 	@Transactional
@@ -98,18 +115,18 @@ public class BookController {
 
 		try {
 			Optional<Booking> booking = bookRepo.findById(bookingRequest.getBookingId());
-			if(booking.isPresent()) {
+			if (booking.isPresent()) {
 				booking.get().setBookingStatus(bookingRequest.getBookingStatus());
 				Booking bookingInstance = booking.get();
 				bookRepo.save(bookingInstance);
-				if(bookingRequest.getBookingStatus() == 'C') {
+				if (bookingRequest.getBookingStatus() == 'C') {
 					Transaction transaction = new Transaction();
 					transaction.setBookingId(bookingInstance.getBookingId());
 					transaction.setClientId(bookingInstance.getClientId());
 					transaction.setPropertyId(bookingInstance.getPropertyId());
 					transaction.setTransactionStartDate(Date.valueOf(LocalDate.now()));
 					transaction.setTransactionStatus('C');
-					
+
 					transaction.setBankReferenceId(java.util.UUID.randomUUID().toString());
 					transactionRepo.save(transaction);
 				}

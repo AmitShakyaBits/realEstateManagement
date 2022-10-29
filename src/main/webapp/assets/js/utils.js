@@ -83,7 +83,7 @@ httpGetAsync = async (url, nJson) => {
 		else
 			data = await fetchResponse.text();
 
-		console.log(data);
+		/*console.log(data);*/
 		return data;
 	} catch (e) {
 		console.log(e);
@@ -108,7 +108,7 @@ httpDeleteAsync = async (url, nJson) => {
 		else
 			data = await fetchResponse.text();
 
-		console.log(data);
+		
 		return data;
 	} catch (e) {
 		console.log(e);
@@ -195,7 +195,12 @@ function getUserEmailAddress() {
 function isUserLoggedIn() {
 	var emailAddress = getUserEmailAddress();
 	if (emailAddress == undefined) {
-		alert('Please login and proceed. Redirecting!')
-		window.location.href = "login";
+		$('#login--confirm--modal').modal('show');
 	}
 }
+
+$('#login--confirm--button').click(function() {
+	window.location.href = "login";
+	return false;
+});
+

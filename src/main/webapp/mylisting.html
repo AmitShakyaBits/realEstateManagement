@@ -134,6 +134,9 @@
 					<li class="nav-item"><a id="my--property"
 						class="nav-link active" href="#">My Listing</a></li>
 
+					<li class="nav-item"><a id="my--transactions"
+						class="nav-link active" href="#">My Transactions</a></li>
+
 
 					<li class="nav-item"><a id='user--logout' class="nav-link "
 						href="#">Logout</a></li>
@@ -141,12 +144,12 @@
 				</ul>
 			</div>
 
-			<button type="button"
+			<!-- <button type="button"
 				class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
 				data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
 				<i class="bi bi-search"></i>
 			</button>
-
+ -->
 		</div>
 	</nav>
 	<!-- End Header/Navbar -->
@@ -194,6 +197,10 @@
 									<div class="card-footer-a">
 										<ul class="card-info d-flex justify-content-around">
 											<li>
+												<h4 class="card-info-title">City</h4> <span
+												class="property--City"> </span>
+											</li>
+											<li>
 												<h4 class="card-info-title">Area</h4> <span
 												class="property--area"> </span>
 											</li>
@@ -210,7 +217,10 @@
 						</div>
 					</div>
 
-
+					<div class="col-md-6" style="display: none" id="no--listing--info">
+						<span style='font-size: 1em; color: black;' class='badge'>You
+							have not added any listing yet. </span> <a href='register'>Add Here</a>
+					</div>
 
 
 				</div>
@@ -238,7 +248,41 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary" id='delete--confirm--button'>Confirm</button>
+					<button type="button" class="btn btn-primary"
+						id='delete--confirm--button'>Confirm</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="show--transcation--modal" tabindex="-1"
+		aria-labelledby="delete--confirm--modal--label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="delete--confirm--modal--label">Transactions</h5>
+					<button type="button" class="close" data-bs-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<table id="transaction--table">
+						<tr>
+							<th>TransactionId</th>
+							<th>BookingId</th>
+							<th>Property Name</th>
+							<th>Booking Type</th>
+							<th>Property Category</th>
+							<th>Price</th>
+						</tr>
+					</table>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Ok</button>
 				</div>
 			</div>
 		</div>

@@ -1,16 +1,26 @@
-/**
-* Template Name: EstateAgency - v4.9.0
-* Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 body {
 	font-family: "Poppins", sans-serif;
 	color: #555555;
+}
+
+table, th, td {
+	border: 1px solid rgb(0 0 0/ 13%);
+	border-collapse: collapse;
+	font-size: 12px;
+	padding: 5px;
+	color: black;
+}
+
+th, td {
+	background-color: white;
+}
+
+#no--listing--info, #no--search--info {
+	margin: 20em;
+	background: #2eca6a;
+	padding: 15px;
+	text-align:center;
+	border: 1px solid;
 }
 
 span {
@@ -28,7 +38,7 @@ a {
 }
 
 a:hover {
-	color: #2eca6a;
+	color: white;
 	text-decoration: none;
 }
 
@@ -539,25 +549,93 @@ a:hover {
 100
 
 
+
+
+
+
+
+
+
+
+
+
 %
 {
 transform
 
 
+
+
+
+
+
+
+
+
+
+
 :
 
 
+
+
+
+
+
+
+
+
+
+
 rotate
+
+
+
+
+
+
+
+
+
+
 (
+
+
+
+
+
+
+
+
+
+
 
 
 360deg
 
 
+
+
+
+
+
+
+
+
+
+
 )
+
+
+
+
+
+
+
+
+
+
 ;
-
-
 }
 }
 @
@@ -568,25 +646,93 @@ keyframes animate-preloader { 0% {
 100
 
 
+
+
+
+
+
+
+
+
+
+
 %
 {
 transform
 
 
+
+
+
+
+
+
+
+
+
+
 :
 
 
+
+
+
+
+
+
+
+
+
+
 rotate
+
+
+
+
+
+
+
+
+
+
 (
+
+
+
+
+
+
+
+
+
+
 
 
 360deg
 
 
+
+
+
+
+
+
+
+
+
+
 )
+
+
+
+
+
+
+
+
+
+
 ;
-
-
 }
 }
 
@@ -1239,6 +1385,7 @@ rotate
 @media ( min-width : 992px) {
 	.card-box-a .price-a, .card-box-b .price-a {
 		/* font-size: 1rem; */
+		
 	}
 }
 
@@ -2135,25 +2282,93 @@ rotate
 100
 
 
+
+
+
+
+
+
+
+
+
+
 %
 {
 transform
 
 
+
+
+
+
+
+
+
+
+
+
 :
 
 
+
+
+
+
+
+
+
+
+
+
 rotate
+
+
+
+
+
+
+
+
+
+
 (
+
+
+
+
+
+
+
+
+
+
 
 
 360deg
 
 
+
+
+
+
+
+
+
+
+
+
 )
+
+
+
+
+
+
+
+
+
+
 ;
-
-
 }
 }
 @
@@ -2164,25 +2379,93 @@ keyframes animate-loading { 0% {
 100
 
 
+
+
+
+
+
+
+
+
+
+
 %
 {
 transform
 
 
+
+
+
+
+
+
+
+
+
+
 :
 
 
+
+
+
+
+
+
+
+
+
+
 rotate
+
+
+
+
+
+
+
+
+
+
 (
+
+
+
+
+
+
+
+
+
+
 
 
 360deg
 
 
+
+
+
+
+
+
+
+
+
+
 )
+
+
+
+
+
+
+
+
+
+
 ;
-
-
 }
 }
 
@@ -2330,6 +2613,7 @@ ol, ul {
 .zf-tempContDiv input[type="text"]:hover, .zf-tempContDiv textarea:hover
 	{
 	/* border: 1px solid rgba(157, 157, 157, 0.75) !important; */
+	
 }
 
 .zf-tempContDiv input[type="text"]:focus, .zf-tempContDiv textarea:focus
@@ -3347,7 +3631,7 @@ input[type="password"] {
 	font-size: 13px;
 }
 
-#signup--status{
+#signup--status {
 	margin-left: 10em;
 	margin-top: -7em;
 	border: 1px;
@@ -3365,7 +3649,7 @@ input[type="password"] {
 	background: black;
 }
 
-#register--status{
+#register--status {
 	margin-left: 10em;
 	margin-top: -7em;
 	border: 1px;
@@ -3374,11 +3658,11 @@ input[type="password"] {
 	background: black;
 }
 
-#no--message{
-	margin:30%;
+#no--message {
+	margin: 30%;
 	border: 1px;
 	width: max-content;
 	padding: 10px;
 	background: red;
-	color:white;
+	color: white;
 }
