@@ -13,5 +13,6 @@ import com.bits.af.entities.Transaction;
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
 	
 	List<Property> findBybookingId(@Param("bookingId") int bookingId);
+	List<Transaction> findByClientId(@Param("clientId") int clientId);
 
 }

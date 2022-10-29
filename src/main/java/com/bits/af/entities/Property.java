@@ -15,7 +15,7 @@ public class Property {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "propertyID")
+	@Column(name = "propertyId")
 	private Integer propertyId;
 
 	@Column(name = "pty_name")

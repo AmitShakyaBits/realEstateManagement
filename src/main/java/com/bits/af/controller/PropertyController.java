@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bits.af.entities.Customer;
 import com.bits.af.entities.Property;
-import com.bits.af.pojo.PropertyRequest;
+/*import com.bits.af.pojo.PropertyRequest;*/
 import com.bits.af.repository.CustomerRepository;
 import com.bits.af.repository.PropertyRepository;
 import com.bits.af.utils.CommonUtils;
@@ -176,7 +176,7 @@ public class PropertyController {
 
 	@SuppressWarnings("unchecked")
 	@PostMapping(value = "/search", produces = "application/json")
-	public ResponseEntity<List<Property>> getPropertiesBySearch(@RequestBody PropertyRequest propertyRequest) {
+	public ResponseEntity<List<Property>> getPropertiesBySearch(@RequestBody Property propertyRequest) {
 		String queryString = "select * from Property where 1=1";
 		List<Object[]> propertyList = new ArrayList<Object[]>();
 		try {
@@ -207,7 +207,7 @@ public class PropertyController {
 		return null != obj ? obj.toString() : null;
 	}
 
-	private String checkForTheSearchField(String queryString, PropertyRequest propertyRequest) {
+	private String checkForTheSearchField(String queryString, Property propertyRequest) {
 		String query = queryString;
 		if (propertyRequest.getPropertyBed() <= 0)
 			propertyRequest.setPropertyBed(null);
